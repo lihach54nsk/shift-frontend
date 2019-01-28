@@ -50,7 +50,7 @@ addBookForm.addEventListener("submit", event => {
 
   toggleClass(".add-book", "loading");
 
-  createRequest({ path: `/api/v001/books`, method: "POST" })
+  createRequest({ path: `/api/v001/books`, method: "POST" }, {}, data)
     .then(response => {
       toggleClass(".add-book", "loading");
       console.log("Книга добавлена", response);
