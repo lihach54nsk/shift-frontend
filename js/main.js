@@ -6,18 +6,22 @@ const renderBook = book => `
     </div>
 `;
 
-createRequest({ path: "/api/v001/books", method: "GET" })
-  .then(response => {
-    document.querySelector("#books").innerHTML = response
-      .map(renderBook)
-      .join("");
-    console.log("Результат запроса книг", response);
-  })
-  .catch(err => {
-    document.querySelector("#books").innerHTML =
-      "Не удалось получить список книг";
-    console.log("Ошибка при получении списка книг", err);
-  });
+const getAllBooks = function() {
+  createRequest({ path: "/api/v001/books", method: "GET" })
+    .then(response => {
+      document.querySelector("#books").innerHTML = response
+        .map(renderBook)
+        .join("");
+      console.log("Результат запроса книг", response);
+    })
+    .catch(err => {
+      document.querySelector("#books").innerHTML =
+        "Не удалось получить список книг";
+      console.log("Ошибка при получении списка книг", err);
+    });
+};
+
+getAllBooks();
 
 const getOneBookForm = document.querySelector("#get-one-book");
 getOneBookForm.addEventListener("submit", event => {
@@ -59,4 +63,10 @@ addBookForm.addEventListener("submit", event => {
       toggleClass(".add-book", "loading");
       console.log("Не удалось добавить книгу");
     });
+});
+
+const userSelector = document.querySelector('.select_control-user');
+userSelector.addEventListener('change', event => {
+  userId = event.target.value;
+  getAllBooks();
 });

@@ -1,5 +1,8 @@
+const HOST = 'http://comp3162.win.ftc.ru:8081';
+let userId = document.querySelector('.select_control-user').value;
+
 const compileUrl = (url, params) => {
-  const resultArr = [];
+  const resultArr = [HOST];
   const options = Object.assign({}, params);
 
   const pathArr = url.split("/");
@@ -47,7 +50,8 @@ const createRequest = (options, queryOptions, body) => {
   return fetch(requestUrl, {
     headers: new Headers({
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      userId: userId
     }),
     method: options.method || "GET",
     body: body ? JSON.stringify(body) : undefined

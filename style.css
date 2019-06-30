@@ -63,7 +63,7 @@ body {
     display: inline-block;
     transform: translateZ(0);
     animation: rotating 0.7s linear infinite;
-    border: 5px solid rgb(60, 204, 134, 0.3);
+    border: 5px solid rgba(60, 204, 134, 0.3);
     border-top-color: #3ccc86;
     border-radius: 50%;
 
@@ -168,4 +168,11 @@ body {
     margin-top: 10px;
 }
 
-
+.user-select {
+    background-color: #fff;
+    box-shadow: 0 10px 6px -6px #777;
+    padding: 10px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
