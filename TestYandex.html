@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yandex Maps</title>
+    <script src="https://api-maps.yandex.ru/2.0-stable/?apikey=AIQwG10BAAAA2KjpWAIAPDzzmCA4_jiXO75XYreTUypz0EIAAAAAAAAAAADN2ubcvRdXnxojygG_XzkH0823GA==
+&?apikey=AIQwG10BAAAA2KjpWAIAPDzzmCA4_jiXO75XYreTUypz0EIAAAAAAAAAAADN2ubcvRdXnxojygG_XzkH0823GA==
+&load=package.standard&lang=ru-RU" type="text/javascript"> </script>
+    <script type="text/javascript">
+        var moscow_map,
+            piter_map;
+
+        ymaps.ready(function(){
+            moscow_map = new ymaps.Map("first_map", {
+                center: [55.76, 37.64],
+                zoom: 10
+            });
+            piter_map = new ymaps.Map(document.getElementsByTagName('p')[2], {
+                center: [59.94, 30.32],
+                zoom: 9
+            });
+        });
+    </script>
+</head>
+<body>
+<p>Карта Москвы</p>
+<div id="first_map" style="width:400px; height:300px"></div>
+<p>Карта Санкт-Петербурга</p>
+<p style="width:400px; height:200px"></p>
+</body>
+</html>
