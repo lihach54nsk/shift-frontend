@@ -1,4 +1,4 @@
-const HOST = 'http://comp3162.win.ftc.ru:8081';
+const HOST = '';
 let userId = document.querySelector('.select_control-user').value;
 
 const compileUrl = (url, params) => {
