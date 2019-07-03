@@ -6,22 +6,44 @@
 </head>
 <body>
 <p>Hey, traveller!</p>
+
+<button id="create" onclick="ShowTravel()">Начать путешествие</button>
+
+<script>
+    function ShowTravel() {
+        document.getElementById("travel").hidden=false;
+    }
+    function ShowNoteFrom() {
+        document.getElementById("noteFirst").hidden=false;
+        document.getElementById("NoteFrom").hidden=true;
+    }
+    function ShowNoteTo() {
+        document.getElementById("noteSecond").hidden=false;
+        document.getElementById("NoteTo").hidden=true;
+    }
+</script>
+
+<div id="travel" hidden>
 <ol>
     <li>
-        <div id=destination">
+        <div id="destination">
             <p>Место отправления: <input type="text" id="from"></p>
+            <p>Дата отправления: <input type="date" id="dateFrom"></p>
+            <p>Заметки: <button id="NoteFrom" onclick="ShowNoteFrom()">Создать заметку</button><textarea hidden id="noteFirst"></textarea></p>
             <p>Место прибытия: <input type="text" id="to"></p>
-            <p>Расстояние: <input type="text" id="distance"></p>
-            <p>Выберите транспорт: <select>
+            <p>Дата прибытия: <input type="date" id="dateTo"></p>
+            <p>Заметки: <button id="NoteTo" onclick="ShowNoteTo()">Создать заметку</button><textarea hidden id="noteSecond"></textarea></p>
+            <p>Расстояние до пункта назначения: <input type="text" id="distance"></p>
+            <p>Выберите вид транспорта: <select>
                 <option value="auto">Автомобиль</option>
                 <option value="society">Общественный транспорт</option>
                 <option value="air">Самолёт</option>
-                <option value="walk">Пешком</option>
+                <option value="train">Поезд</option>
             </select></p>
             <p>Затраты на транспорт: <input type="text" id="transferCost"></p>
-            <p>Пометки: <textarea></textarea></p>
         </div>
     </li>
 </ol>
+</div>
 </body>
 </html>
