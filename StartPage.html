@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>Hey, traveller!</p>
+    <head>
+        <meta charset="UTF-8">
+        <title>BadTrip</title>
+        <script src="CreateNode.js"></script>
+    </head>
 
-<button id="create" onclick="ShowTravel()">Начать путешествие</button>
+    <body>
+        <p>Hey, traveller!</p>
 
-<script>
-    function ShowTravel() {
-        document.getElementById("travel").hidden=false;
-    }
-    function ShowNoteFrom() {
-        document.getElementById("noteFirst").hidden=false;
-        document.getElementById("NoteFrom").hidden=true;
-    }
-    function ShowNoteTo() {
-        document.getElementById("noteSecond").hidden=false;
-        document.getElementById("NoteTo").hidden=true;
-    }
-</script>
+        <button class="createTravel" onclick="ShowTravel()">Начать путешествие</button>
 
-<div id="travel" hidden>
-<ol>
-    <li>
-        <div id="destination">
-            <p>Место отправления: <input type="text" id="from"></p>
-            <p>Дата отправления: <input type="date" id="dateFrom"></p>
-            <p>Заметки: <button id="NoteFrom" onclick="ShowNoteFrom()">Создать заметку</button><textarea hidden id="noteFirst"></textarea></p>
-            <p>Место прибытия: <input type="text" id="to"></p>
-            <p>Дата прибытия: <input type="date" id="dateTo"></p>
-            <p>Заметки: <button id="NoteTo" onclick="ShowNoteTo()">Создать заметку</button><textarea hidden id="noteSecond"></textarea></p>
-            <p>Расстояние до пункта назначения: <input type="text" id="distance"></p>
-            <p>Выберите вид транспорта: <select>
-                <option value="auto">Автомобиль</option>
-                <option value="society">Общественный транспорт</option>
-                <option value="air">Самолёт</option>
-                <option value="train">Поезд</option>
-            </select></p>
-            <p>Затраты на транспорт: <input type="text" id="transferCost"></p>
+        <script>
+            function ShowTravel() {
+                document.getElementById("travel").hidden=false;
+            }
+        </script>
+
+        <div id="travel" hidden>
+            <ol class="list">
+                <div><p>Как назовём бэд-трип? <input type="text" class="name"></p></div>
+                <li class="list_item_1">
+                    <div class="destination_1">
+                        <div><p>Место отправления: <input type="text" class="from"></p></div>
+                        <div><p>Дата отправления: <input type="datetime-local" class="dateFrom"></p></div>
+                        <div><p>Заметки: <textarea class="noteFrom"></textarea></p></div>
+                        <div><p>Место прибытия: <input type="text" class="to"></p></div>
+                        <div><p>Дата прибытия: <input type="datetime-local" class="dateTo"></p></div>
+                        <div><p>Заметки: <textarea class="noteTo"></textarea></p></div>
+                        <div><p>Расстояние до пункта назначения: <input type="text" class="distance"></p></div>
+                        <div><p>Выберите вид транспорта: <select class="transfer">
+                            <option value="auto">Автомобиль</option>
+                            <option value="society">Общественный транспорт</option>
+                            <option value="air">Самолёт</option>
+                            <option value="train">Поезд</option>
+                            <option value="walk">Пешком</option>
+                            <option value="other">Другое</option>
+                        </select></p></div>
+                        <div><p>Затраты на транспорт: <input type="text" class="transferCost"></p></div>
+                    </div>
+                    <script>
+                        //var elements = document.querySelectorAll('div.destination_1 > div p input')
+                        //elements
+                        //var elements2 = document.querySelectorAll('div.destination_1 > div p')
+                        //elements2
+                    </script>
+                </li>
+            </ol>
+            <button class="createList" onclick="CreateNewNode()">Новое место</button>
         </div>
-    </li>
-</ol>
-</div>
-</body>
+    </body>
 </html>
