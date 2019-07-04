@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>BadTrip</title>
         <script src="CreateNode.js"></script>
+        <script src="SendObjects.js"></script>
+        <script src="Send.js"></script>
         <!--<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
@@ -22,7 +24,7 @@
         <div id="travel" hidden>
             <form id="my_travel" method="post">
                 <ol class="list">
-                    <div><p>Как назовём бэд-трип? <input type="text" name="name" class="name"></p></div>
+                    <div class="name_of_Travel"><p>Как назовём бэд-трип? <input type="text" name="name_Of_Travel" class="name"></p></div>
                     <li class="list_item_1">
                         <form id="destination_1" method="post">
                             <div class="destination_1">
@@ -40,9 +42,8 @@
                                     <option value="other">Другое</option>
                                 </select></p></div>
                                 <div><p>Затраты на транспорт: <input type="text" name="transferCost_1" class="transferCost"></p></div>
-                                <div><p>Заметки: <textarea name="noteFrom_1" class="noteFrom"></textarea></p></div>
+                                <div class="noteFrom_1"><p>Заметки к месту: <textarea class="note"></textarea></p></div>
                             </div>
-                            <button class="send" type="submit">Submit</button>
                             <script>
                                 $.fn.serializeObject = function()
                                 {
@@ -74,10 +75,13 @@
                             //elements
                             //var elements2 = document.querySelectorAll('div.destination_1 > div p')
                             //elements2
+                            //var elements = document.querySelectorAll('div.name_of_Travel > p input')
+                            //elements[0].value
                         </script>
                     </li>
                 </ol>
             </form>
+            <div class="note_Travel"><p>Заметки к путешествию: <textarea name="noteTravel" class="note"></textarea></p></div>
             <button class="createList" onclick="CreateNewNode()">Новое место</button>
             <button class="send" onclick="SendData()">Save</button>
         </div>

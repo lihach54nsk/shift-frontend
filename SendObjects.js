@@ -24,7 +24,7 @@ class NotesMove {
     constructor(idNote, idMove, topic, text) {
         this.idNote = idNote;
         this.idMove = idMove;
-        this.topic = topic;
+        this.topicMove = topic;
         this.text= text;
     }
 }
@@ -33,7 +33,7 @@ class NotesTravel {
     constructor(idNote, idTravel, topic, text) {
         this.idNote = idNote;
         this.idTravel = idTravel;
-        this.topic = topic;
+        this.topicTravel = topic;
         this.text= text;
     }
 }

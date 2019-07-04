@@ -20,7 +20,7 @@ function CreateNewNode(){
         "                            <option value=\"other\">Другое</option>\n" +
         "                        </select></p></div>\n" +
         "                        <div><p>Затраты на транспорт: <input type=\"text\" name=\"transferCost_"+ countList.toString() + "\" class=\"transferCost\"></p></div>\n" +
-        "                        <div><p>Заметки: <textarea name=\"noteFrom_" + countList.toString() + "\" class=\"noteFrom\"></textarea></p></div>\n" +
+        "                        <div class=\"noteFrom_" + countList.toString() + "\"><p>Заметки: <textarea name=\"noteFrom_" + countList.toString() + "\" class=\"noteFrom\"></textarea></p></div>\n" +
         "                    </div>"
     findElem[0].appendChild(newElem);
     //var newDiv=document.createElement('div');
