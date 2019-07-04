@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>BadTrip</title>
         <script src="CreateNode.js"></script>
+        <!--<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -18,27 +20,55 @@
         </script>
 
         <div id="travel" hidden>
+            <form id="my_travel" method="post">
             <ol class="list">
-                <div><p>Как назовём бэд-трип? <input type="text" class="name"></p></div>
+                <div><p>Как назовём бэд-трип? <input type="text" name="name" class="name"></p></div>
                 <li class="list_item_1">
-                    <div class="destination_1">
-                        <div><p>Место отправления: <input type="text" class="from"></p></div>
-                        <div><p>Дата отправления: <input type="datetime-local" class="dateFrom"></p></div>
-                        <div><p>Заметки: <textarea class="noteFrom"></textarea></p></div>
-                        <div><p>Место прибытия: <input type="text" class="to"></p></div>
-                        <div><p>Дата прибытия: <input type="datetime-local" class="dateTo"></p></div>
-                        <div><p>Заметки: <textarea class="noteTo"></textarea></p></div>
-                        <div><p>Расстояние до пункта назначения: <input type="text" class="distance"></p></div>
-                        <div><p>Выберите вид транспорта: <select class="transfer">
-                            <option value="auto">Автомобиль</option>
-                            <option value="society">Общественный транспорт</option>
-                            <option value="air">Самолёт</option>
-                            <option value="train">Поезд</option>
-                            <option value="walk">Пешком</option>
-                            <option value="other">Другое</option>
-                        </select></p></div>
-                        <div><p>Затраты на транспорт: <input type="text" class="transferCost"></p></div>
-                    </div>
+                    <form id="destination_1" method="post">
+                        <div class="destination_1">
+                            <div><p>Место отправления: <input type="text" name="from" class="from"></p></div>
+                            <div><p>Место прибытия: <input type="text" name="to" class="to"></p></div>
+                            <div><p>Дата отправления: <input type="datetime-local" name="dateFrom" class="dateFrom"></p></div>
+                            <div><p>Дата прибытия: <input type="datetime-local" name="dateTo" class="dateTo"></p></div>
+                            <div><p>Расстояние до пункта назначения: <input type="text" name="distance" class="distance"></p></div>
+                            <div><p>Выберите вид транспорта: <select name="transfer" class="transfer">
+                                <option value="auto">Автомобиль</option>
+                                <option value="society">Общественный транспорт</option>
+                                <option value="air">Самолёт</option>
+                                <option value="train">Поезд</option>
+                                <option value="walk">Пешком</option>
+                                <option value="other">Другое</option>
+                            </select></p></div>
+                            <div><p>Затраты на транспорт: <input type="text" name="transferCost" class="transferCost"></p></div>
+                            <div><p>Заметки: <textarea name="noteFrom" class="noteFrom"></textarea></p></div>
+                        </div>
+                        <button class="send" type="submit">Submit</button>
+                        <script>
+                            $.fn.serializeObject = function()
+                            {
+                                var o = {};
+                                var a = this.serializeArray();
+                                $.each(a, function() {
+                                    if (o[this.name]) {
+                                        if (!o[this.name].push) {
+                                            o[this.name] = [o[this.name]];
+                                        }
+                                        o[this.name].push(this.value || '');
+                                    } else {
+                                        o[this.name] = this.value || '';
+                                    }
+                                });
+                                return o;
+                            };
+
+                            $(function() {
+                                $('#my_travel').submit(function() {
+                                    alert(JSON.stringify($('#my_travel').serializeObject()));
+                                    return false;
+                                });
+                            });
+                        </script>
+                    </form>
                     <script>
                         //var elements = document.querySelectorAll('div.destination_1 > div p input')
                         //elements
@@ -47,6 +77,8 @@
                     </script>
                 </li>
             </ol>
+
+            </form>
             <button class="createList" onclick="CreateNewNode()">Новое место</button>
         </div>
     </body>
