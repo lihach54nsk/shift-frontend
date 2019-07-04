@@ -1,7 +1,8 @@
 class Travel {
-    constructor(idTravel, name){
+    constructor(idUser, idTravel, name){
+        this.idUser = idUser;
         this.idTravel = idTravel;
-        this.name = name;
+        this.nameTravel = name;
     }
 }
 
@@ -20,7 +21,8 @@ class Move {
 }
 
 class NotesMove {
-    constructor(idMove, topic, text) {
+    constructor(idNote, idMove, topic, text) {
+        this.idNote = idNote;
         this.idMove = idMove;
         this.topic = topic;
         this.text= text;
@@ -28,7 +30,8 @@ class NotesMove {
 }
 
 class NotesTravel {
-    constructor(idTravel, topic, text) {
+    constructor(idNote, idTravel, topic, text) {
+        this.idNote = idNote;
         this.idTravel = idTravel;
         this.topic = topic;
         this.text= text;
