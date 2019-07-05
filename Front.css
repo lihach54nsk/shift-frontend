@@ -25,6 +25,7 @@ div.greetings {
 
 div.point {
     border: 1px solid black;
+
 }
 
 div.in {
@@ -60,18 +61,20 @@ input {
     border: 1px solid;
     border-radius: 4px 4px 4px 4px;
     height: 20px;
-    width: 100%;
+    width: 95%;
+    position: relative;
 }
 
 textarea {
     background-color: #F9AA33;
     border: 1px solid;
     border-radius: 4px 4px 4px 4px;
+    width: 60%;
+    height: 45px;
 }
 
 ol{
     counter-reset: myCounter;
-
 }
 
 li {
