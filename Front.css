@@ -24,8 +24,9 @@ div.greetings {
 }
 
 div.point {
-    border: 1px solid black;
+    border: 1px solid #777777;
     padding: 15px;
+    border-radius: 8px;
 }
 
 div.in {
@@ -45,6 +46,11 @@ div.note {
 
 div.note_Travel {
     font-family: Roboto;
+    position: relative;
+    border: #777777 1px solid;
+    margin: 15px;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 p.hey {
