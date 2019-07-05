@@ -9,10 +9,11 @@
         <link rel="stylesheet" type="text/css" href="Front.css">
         <!--<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');</style>
     </head>
 
     <body>
-        <p>Hey, traveller!</p>
+        <div class="greetings"><p class="hey">Hey, traveller!</p></div>
 
         <button class="createTravel" onclick="ShowTravel()">Начать путешествие</button>
 
@@ -29,12 +30,12 @@
                     <li class="list_item_1">
                         <form id="destination_1" method="post">
                             <div class="destination_1">
-                                <div><p>Место отправления: <input type="text" name="from_1" class="from"></p></div>
-                                <div><p>Место прибытия: <input type="text" name="to_1" class="to"></p></div>
-                                <div><p>Дата отправления: <input type="datetime-local" name="dateFrom_1" class="dateFrom"></p></div>
-                                <div><p>Дата прибытия: <input type="datetime-local" name="dateTo_1" class="dateTo"></p></div>
-                                <div><p>Расстояние до пункта назначения: <input type="text" name="distance_1" class="distance"></p></div>
-                                <div><p>Выберите вид транспорта: <select name="transfer_1" class="transfer">
+                                <div class="in"><p>Место отправления: <input type="text" name="from_1" class="from"></p></div>
+                                <div class="in"><p>Место прибытия: <input type="text" name="to_1" class="to"></p></div>
+                                <div class="in"><p>Дата отправления: <input type="datetime-local" name="dateFrom_1" class="dateFrom"></p></div>
+                                <div class="in"><p>Дата прибытия: <input type="datetime-local" name="dateTo_1" class="dateTo"></p></div>
+                                <div class="in"><p>Расстояние до пункта назначения: <input type="text" name="distance_1" class="distance"></p></div>
+                                <div class="in"><p>Выберите вид транспорта: <select name="transfer_1" class="transfer">
                                     <option value="auto">Автомобиль</option>
                                     <option value="society">Общественный транспорт</option>
                                     <option value="air">Самолёт</option>
@@ -42,7 +43,7 @@
                                     <option value="walk">Пешком</option>
                                     <option value="other">Другое</option>
                                 </select></p></div>
-                                <div><p>Затраты на транспорт: <input type="text" name="transferCost_1" class="transferCost"></p></div>
+                                <div class="in"><p>Затраты на транспорт: <input type="text" name="transferCost_1" class="transferCost"></p></div>
                                 <div class="noteFrom_1"><p>Заметки к месту: <textarea class="note"></textarea></p></div>
                             </div>
                             <script>
