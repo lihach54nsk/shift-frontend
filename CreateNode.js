@@ -5,7 +5,7 @@ function CreateNewNode(){
     countList++;
     var newElem = document.createElement('li');
     newElem.className = "list_elem_" + countList.toString();
-    newElem.innerHTML = "<div  class=\"destination_" + countList.toString() + "\">\n" +
+    newElem.innerHTML = "<div  class=\"destination_" + countList.toString() + " point\">\n" +
         "                        <div><p>Место отправления: <input type=\"text\" name=\"from_" + countList.toString() + "\" class=\"from\"></p></div>\n" +
         "                        <div><p>Место прибытия: <input type=\"text\" name=\"to_" + countList.toString() + "\" class=\"to\"></p></div>\n" +
         "                        <div><p>Дата отправления: <input type=\"datetime-local\" name=\"dateFrom_" + countList.toString() + "\" class=\"dateFrom\"></p></div>\n" +
