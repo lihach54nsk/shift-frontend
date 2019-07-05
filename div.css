@@ -1,0 +1,26 @@
+div.greetings {
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    background: aquamarine;
+}
+
+div.point {
+    border: 1px solid black;
+}
+
+div.in {
+    font-family: Roboto;
+}
+
+div.name_of_Travel {
+    font-family: Roboto;
+}
+
+div.note {
+    font-family: Roboto;
+}
+
+div.note_Travel {
+    font-family: Roboto;
+}
