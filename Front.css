@@ -25,11 +25,12 @@ div.greetings {
 
 div.point {
     border: 1px solid black;
-
+    padding: 15px;
 }
 
 div.in {
     font-family: Roboto;
+    margin-left: 15px;
 }
 
 div.name_of_Travel {
@@ -38,6 +39,8 @@ div.name_of_Travel {
 
 div.note {
     font-family: Roboto;
+    margin-left: 15px;
+    text-align: left;
 }
 
 div.note_Travel {
