@@ -1,8 +1,7 @@
-const HOST = '';
 let userId = document.querySelector('.select_control-user').value;
 
 const compileUrl = (url, params) => {
-  const resultArr = [HOST];
+  const resultArr = [];
   const options = Object.assign({}, params);
 
   const pathArr = url.split("/");

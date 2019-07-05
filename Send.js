@@ -4,7 +4,7 @@ function SendData(){
     var str = JSON.stringify(travel);
     alert(str);
 
-    for(i = 1; i <= countList; i++) {
+    for (i = 1; i <= countList; i++) {
         FindDataInput(i);
     }
 
