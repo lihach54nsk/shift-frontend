@@ -15,7 +15,22 @@
     <body>
         <div class="greetings"><p class="hey">Hey, traveller!</p></div>
 
-        <button class="createTravel" onclick="ShowTravel()">Начать путешествие</button>
+        <div><p>Ваши путешествия: </p></div>
+
+        <div class="travel_list">
+            <div class="exist_travels travel_1">
+                <p class="travel_name">Paris</p>
+                <p class="travel_name">Date</p>
+                <button class="editTravel">Редактировать</button>
+            </div>
+            <div class="exist_travels travel_1">
+                <p class="travel_name">Paris</p>
+                <p class="travel_name">Date</p>
+                <button class="editTravel">Редактировать</button>
+            </div>
+        </div>
+
+        <button class="createTravel" onclick="ShowTravel()">Начать новое путешествие</button>
 
         <script>
             function ShowTravel() {

@@ -11,6 +11,10 @@ button.createTravel {
     margin-left: 43.5%;
     margin-top: 10px;
 }
+button.editTravel {
+    position: relative;
+
+}
 
 body {
     background-color: #fafafa;
@@ -21,6 +25,22 @@ div.greetings {
     height: 60px;
     width: 100%;
     background: aquamarine;
+    font-family: Roboto;
+    border-radius: 20px;
+}
+
+div.exist_travels {
+    border: 1px solid #777777;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    font-family: Roboto;
+    width: 180px;
+    display: inline-block;
+}
+
+div.travel_list {
+    display: inline;
 }
 
 div.point {
