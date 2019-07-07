@@ -13,10 +13,6 @@ button.createTravel {
     position: relative;
 }
 
-div.createTravelList {
-    margin-top: 10px;
-}
-
 button.editTravel {
     position: relative;
 }
@@ -46,6 +42,10 @@ div.exist_travels {
 
 div.travel_list {
     display: inline;
+}
+
+div.createTravelList {
+    margin-top: 10px;
 }
 
 div.point {
