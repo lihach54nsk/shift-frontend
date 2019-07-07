@@ -6,6 +6,7 @@
         <script src="CreateNode.js"></script>
         <script src="SendObjects.js"></script>
         <script src="Send.js"></script>
+        <script src="create_Exist_Travel.js"></script>
         <link rel="stylesheet" type="text/css" href="Front.css">
         <!--<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,20 +18,16 @@
 
         <div><p>Ваши путешествия: </p></div>
 
-        <div class="travel_list">
-            <div class="exist_travels travel_1">
-                <p class="travel_name">Paris</p>
-                <p class="travel_name">Date</p>
-                <button class="editTravel_1">Редактировать</button>
-            </div>
-            <div class="exist_travels travel_1">
-                <p class="travel_name">Paris</p>
-                <p class="travel_name">Date</p>
-                <button class="editTravel_2">Редактировать</button>
-            </div>
-        </div>
+        <script>
+            $(document).ready(function () {
+                Create_List_Of_existing_Travels();
+            })
 
-        <button class="createTravel" onclick="ShowTravel()">Начать новое путешествие</button>
+        </script>
+
+        <div class="travel_list"></div>
+
+        <div class="createTravelList"><button class="createTravel" onclick="ShowTravel()">Начать новое путешествие</button></div>
 
         <script>
             function ShowTravel() {

@@ -10,10 +10,15 @@ button {
 button.createTravel {
     margin-left: 43.5%;
     margin-top: 10px;
+    position: relative;
 }
+
+div.createTravelList {
+    margin-top: 10px;
+}
+
 button.editTravel {
     position: relative;
-
 }
 
 body {

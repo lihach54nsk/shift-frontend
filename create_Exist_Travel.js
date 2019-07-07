@@ -1,4 +1,18 @@
+var countTravel = 1;
 var countPlace = 1;
+
+function Create_List_Of_existing_Travels() {
+    for(i = 1; i <= countTravel; i++) {
+        let findDiv = document.getElementsByClassName('travel_list');
+        let newDiv = document.createElement('div');
+        newDiv.className = 'exist_travels travel_' + i.toString();
+
+        newDiv.innerHTML = "<p class=\"travel_name\">Paris</p>\n" +
+            "                <p class=\"travel_name\">Date</p>\n" +
+            "                <button class=\"editTravel_" + i.toString() + "\">Редактировать</button>\n";
+        findDiv[0].appendChild(newDiv);
+    }
+}
 
 function Create_Exist_Places() {
     countPlace++;
