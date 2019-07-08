@@ -1,4 +1,4 @@
-function SendData(){
+function SendData() {
     let travel = new Travel(1, document.querySelectorAll('div.name_of_Travel > p input')[0].value);
 
     var str = JSON.stringify(travel);

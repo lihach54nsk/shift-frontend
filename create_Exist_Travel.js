@@ -2,7 +2,6 @@ var countTravel = 3;
 var countPlace = 1;
 
 function Create_List_Of_existing_Travels() {
-
     let xhrTravelsList = new XMLHttpRequest();
     xhrTravelsList.open('GET', 'URL.URL', true); // GetTravels()
     xhrTravelsList.setRequestHeader('UserId', 'UserA');

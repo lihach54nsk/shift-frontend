@@ -1,6 +1,6 @@
 var countList = 1;
 
-function CreateNewNode(){
+function CreateNewNode() {
     var findElem = document.getElementsByClassName('list');
     countList++;
     var newElem = document.createElement('li');
