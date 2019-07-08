@@ -2,13 +2,25 @@ var countTravel = 3;
 var countPlace = 1;
 
 function Create_List_Of_existing_Travels() {
+
+    let xhrTravelsList = new XMLHttpRequest();
+    xhrTravelsList.open('GET', 'URL.URL', true); // GetTravels()
+    xhrTravelsList.setRequestHeader('UserId', 'UserA');
+    xhrTravelsList.send();
+
+    if (xhrTravelsList.status !== 200) {
+        alert('ERROR');
+    } else {
+        countTravel = xhrTravelsList.responseText;
+    }
+
     for(i = 1; i <= countTravel; i++) {
         let findDiv = document.getElementsByClassName('travel_list');
         let newDiv = document.createElement('div');
         newDiv.className = 'exist_travels travel_' + i.toString();
 
-        newDiv.innerHTML = "<p class=\"travel_name\">Paris</p>\n" +
-            "                <p class=\"travel_name\">Date</p>\n" +
+        newDiv.innerHTML = "<p class=\"travel_name\">Paris</p>\n" + // xhrTravelsList.responseText.nameOfTravel
+            "                <p class=\"travel_name\">Date</p>\n" + // xhrTravelsList.responseText.DateOfTravel
             "                <button type=\"submit\" class=\"editTravel_" + i.toString() + "\" value=\""+ i.toString() + "\" onclick=\"Open_Exist_Travel(" + i.toString() + ")\">Редактировать</button>\n";
         findDiv[0].appendChild(newDiv);
     }
@@ -20,15 +32,15 @@ function Open_Exist_Travel(value) {
 
 function Create_Exist_Places() {
     //countPlace++;
-    let userId = 'получить из value на странице ';
+    let travelId = 'получить из value на странице ';
     /*function OnLoad() {
             var paramValue = window.location.href.split("?")[1].split("=")[1];
             document.getElementById("UsName").innerHTML = paramValue;
         }
     */
-    let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK
+    let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK - GetTravel()
     xhrTravels.open('GET', 'URL.URL', false);
-    xhrTravels.setRequestHeader(userId,'UserA');
+    xhrTravels.setRequestHeader('userId','UserA');
     xhrTravels.send();
 
     if (xhrTravels.status !== 200) {
@@ -41,13 +53,18 @@ function Create_Exist_Places() {
     * не забыть присвоить название путешествия в форме названия бэд-трипа
     * */
 
-    let xhrTravelInfo = new XMLHttpRequest();
-    xhrTravelInfo.open('GET', "URL.URL", false);
+    let xhrTravelInfo = new XMLHttpRequest(); // GetMoves()
+    xhrTravelInfo.open('GET', 'URL.URL', false);
 
     xhrTravelInfo.send();
+
+    let xhrMoveNotes = new XMLHttpRequest();// GetMovesNotes()
+    xhrMoveNotes.open('GET','URL.URL', false);
+    xhrMoveNotes.setRequestHeader(userId, 'UserA');
+    xhrMoveNotes.send();
     /*запросить информацию о путешествии(-ях???)*/
 
-    let xhrTravelNotes = new XMLHttpRequest();
+    let xhrTravelNotes = new XMLHttpRequest(); //GetTravelNotes()
     xhrTravelNotes.open('GET', 'URL.URL', false);
     xhrTravelNotes.setRequestHeader(userId, 'UserA');
     xhrTravelNotes.send();

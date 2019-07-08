@@ -88,6 +88,7 @@ select {
     border: 1px solid;
     border-radius: 4px 4px 4px 4px;
     font-family: Roboto;
+    height: 25px;
 }
 
 input {
