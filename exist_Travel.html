@@ -21,8 +21,14 @@
                 </ol>
             </form>
             <div class="note_Travel"><p>Заметки к путешествию: <textarea name="noteTravel" class="note"></textarea></p></div>
-            <button class="createList" onclick="Create_Exist_Places()">Новое место</button>
+            <button class="createList" onclick="CreateNewNodeOfExistTravels()">Новое место</button>
             <button class="send" onclick="SendData()">Поiхали</button>
         </div>
     </body>
+
+    <script>
+        $(document).ready(function () {
+            Create_Exist_Places();
+        })
+    </script>
 </html>
