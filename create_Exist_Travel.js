@@ -32,7 +32,7 @@ function Open_Exist_Travel(value) {
 
 function Create_Exist_Places() {
     //countPlace++;
-    let travelId = 'получить из value на странице ';
+    var travelId = 'получить из value на странице '; // travelId, нужен будет при отправке данных
     /*function OnLoad() {
             var paramValue = window.location.href.split("?")[1].split("=")[1];
             document.getElementById("UsName").innerHTML = paramValue;
