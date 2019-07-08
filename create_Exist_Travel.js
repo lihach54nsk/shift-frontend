@@ -1,4 +1,4 @@
-var countTravel = 1;
+var countTravel = 3;
 var countPlace = 1;
 
 function Create_List_Of_existing_Travels() {
@@ -9,7 +9,7 @@ function Create_List_Of_existing_Travels() {
 
         newDiv.innerHTML = "<p class=\"travel_name\">Paris</p>\n" +
             "                <p class=\"travel_name\">Date</p>\n" +
-            "                <button class=\"editTravel_" + i.toString() + "\">Редактировать</button>\n";
+            "                <button class=\"editTravel_" + i.toString() + "\" value=\""+ i.toString() + "\">Редактировать</button>\n";
         findDiv[0].appendChild(newDiv);
     }
 }
