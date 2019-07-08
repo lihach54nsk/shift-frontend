@@ -19,12 +19,45 @@ function Open_Exist_Travel(value) {
 }
 
 function Create_Exist_Places() {
-    countPlace++;
+    //countPlace++;
+    let userId = 'получить из value на странице ';
+    /*function OnLoad() {
+            var paramValue = window.location.href.split("?")[1].split("=")[1];
+            document.getElementById("UsName").innerHTML = paramValue;
+        }
+    */
+    let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK
+    xhrTravels.open('GET', 'URL.URL', false);
+    xhrTravels.setRequestHeader(userId,'UserA');
+    xhrTravels.send();
 
+    if (xhrTravels.status !== 200) {
+        alert('ERROR!');
+    } else {
+        countPlace = xhrTravels.responseText;
+    }
     /*запрос и обработка количества мест
     * countPlace = n;
     * не забыть присвоить название путешествия в форме названия бэд-трипа
     * */
+
+    let xhrTravelInfo = new XMLHttpRequest();
+    xhrTravelInfo.open('GET', "URL.URL", false);
+
+    xhrTravelInfo.send();
+    /*запросить информацию о путешествии(-ях???)*/
+
+    let xhrTravelNotes = new XMLHttpRequest();
+    xhrTravelNotes.open('GET', 'URL.URL', false);
+    xhrTravelNotes.setRequestHeader(userId, 'UserA');
+    xhrTravelNotes.send();
+
+    if(xhrTravelNotes.status !== 200) {
+        alert('ERROR');
+    } else {
+        let travelNote = xhrTravelNotes.responseText; // заметка на всё путешествие
+    }
+    /*запросить информацию о заметках по путешествию*/
 
     for(i = 1; i <= countPlace; i++) {
 
@@ -75,8 +108,4 @@ function CreateNewNodeOfExistTravels(){
         "                        <div class=\"noteFrom_" + countPlace.toString() + " note\"><p>Заметки к месту: <textarea></textarea></p></div>\n" +
         "                    </div>"
     findNewElement[0].appendChild(newListElement);
-    //var newDiv=document.createElement('div');
-    //newDiv.className="new";
-    //findElem=document.getElementsByClassName("list_elem_" + countList.toString());
-    //findElem[0].appendChild(newDiv);
 }
