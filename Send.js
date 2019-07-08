@@ -4,7 +4,7 @@ function SendData(){
     var str = JSON.stringify(travel);
     let xmlTravelPOSTSend = new XMLHttpRequest(); // PostTravel()
     xmlTravelPOSTSend.setRequestHeader('userId','UserA');
-    xmlTravelPOSTSend.contentType = 'application/json';
+    xmlTravelPOSTSend.setRequestHeader('Content-Type','application/json');
     xmlTravelPOSTSend.open('POST','URL.URL',true);
     xmlTravelPOSTSend.send(str);
 
@@ -20,7 +20,7 @@ function SendData(){
 
     let xmlTravelNotesPOSTSend = new XMLHttpRequest(); // PostTravelNote()
     xmlTravelNotesPOSTSend.setRequestHeader('userId','UserA');
-    xmlTravelNotesPOSTSend.contentType = 'application/json';
+    xmlTravelNotesPOSTSend.setRequestHeader('Content-Type','application/json');
     xmlTravelNotesPOSTSend.open('POST','URL.URL', true);
     xmlTravelNotesPOSTSend.send(str);
 
@@ -43,7 +43,7 @@ function FindDataInput(number_Of_Tag) {
 
     let xhrMoveDataPOSTSend = new XMLHttpRequest(); // PostMove()
     xhrMoveDataPOSTSend.setRequestHeader('userId','UserA');
-    xhrMoveDataPOSTSend.contentType = 'application/json';
+    xhrMoveDataPOSTSend.setRequestHeader('Content-Type','application/json');
     xhrMoveDataPOSTSend.open('POST','URL.URL',true);
     xhrMoveDataPOSTSend.send(str);
 
@@ -55,7 +55,7 @@ function FindDataInput(number_Of_Tag) {
 
     let xhrMoveNotePOSTSend = new XMLHttpRequest(); // PostNoteMove()
     xhrMoveNotePOSTSend.setRequestHeader('userId','UserA');
-    xhrMoveNotePOSTSend.contentType = 'application/json';
+    xhrMoveNotePOSTSend.setRequestHeader('Content-Type','application/json');
     xhrMoveNotePOSTSend.open('POST','URL.URL',true);
     xhrMoveNotePOSTSend.send(str);
 
