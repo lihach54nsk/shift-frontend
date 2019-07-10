@@ -17,13 +17,13 @@ function Create_List_Of_existing_Travels() {
             countTravel = JSON.length;
             alert(countTravel);
 
-            for(i = 1; i <= countTravel; i++) {
+            for(let i = 1; i <= countTravel; i++) {
                 let findDiv = document.getElementsByClassName('travel_list');
                 let newDiv = document.createElement('div');
                 newDiv.className = 'exist_travels travel_' + i.toString();
 
                 newDiv.innerHTML = "<p class=\"travel_name\">" + JSON[i - 1].name + "</p>\n" + // xhrTravelsList.responseText.nameOfTravel
-                    "               <button type=\"submit\" class=\"editTravel_" + i.toString() + "\" value=\""+ i.toString() + "\" onclick=\"Open_Exist_Travel(" + i.toString() + ")\">Редактировать</button>\n";
+                    "               <button type=\"submit\" class=\"editTravel_" + i.toString() + "\" value=\""+ JSON[i - 1].id.toString() + "\" onclick=\"Open_Exist_Travel(" + JSON[i - 1].id.toString() + ")\">Редактировать</button>\n";
                 findDiv[0].appendChild(newDiv);
             }
         }
@@ -120,12 +120,12 @@ function Create_Exist_Places() {
             "                        <div class=\"in\"><p>Дата прибытия: <input value=\"" + arrToDate[i] + "\" type=\"datetime-local\" name=\"dateTo_" + (i + 1).toString() + "\" class=\"dateTo\"></p></div>\n" +
             "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input value=\"" + arrDistance[i].toString() + "\" type=\"text\" name=\"distance_" + (i + 1).toString() + "\" class=\"distance\"></p></div>\n" +
             "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + (i + 1).toString() + "\">\n" +
-            "                            <option value=\"auto\">Автомобиль</option>\n" +
-            "                            <option value=\"society\">Общественный транспорт</option>\n" +
-            "                            <option value=\"air\">Самолёт</option>\n" +
-            "                            <option value=\"train\">Поезд</option>\n" +
-            "                            <option value=\"walk\">Пешком</option>\n" +
-            "                            <option value=\"other\">Другое</option>\n" +
+            "                            <option value=\"1\">Автомобиль</option>\n" +
+            "                            <option value=\"2\">Общественный транспорт</option>\n" +
+            "                            <option value=\"3\">Самолёт</option>\n" +
+            "                            <option value=\"4\">Поезд</option>\n" +
+            "                            <option value=\"5\">Пешком</option>\n" +
+            "                            <option value=\"6\">Другое</option>\n" +
             "                        </select></p></div>\n" +
             "                        <div class=\"in\"><p>Затраты на транспорт: <input value=\"" + arrMoney[i].toString() + "\" type=\"text\" name=\"transferCost_" + (i + 1).toString() + "\" class=\"transferCost\"></p></div>\n" +
             "                        <div class=\"noteFrom_" + (i + 1).toString() + " note\"><p>Заметки к месту: <textarea>" + arrMoveNotes[i].toString() + "</textarea></p></div>\n" +
@@ -147,12 +147,12 @@ function CreateNewNodeOfExistTravels(){
         "                        <div class=\"in\"><p>Дата прибытия: <input type=\"datetime-local\" name=\"dateTo_" + countPlace.toString() + "\" class=\"dateTo\"></p></div>\n" +
         "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input type=\"text\" name=\"distance_" + countPlace.toString() + "\" class=\"distance\"></p></div>\n" +
         "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + countPlace.toString() + "\">\n" +
-        "                            <option value=\"auto\">Автомобиль</option>\n" +
-        "                            <option value=\"society\">Общественный транспорт</option>\n" +
-        "                            <option value=\"air\">Самолёт</option>\n" +
-        "                            <option value=\"train\">Поезд</option>\n" +
-        "                            <option value=\"walk\">Пешком</option>\n" +
-        "                            <option value=\"other\">Другое</option>\n" +
+        "                            <option value=\"1\">Автомобиль</option>\n" +
+        "                            <option value=\"2\">Общественный транспорт</option>\n" +
+        "                            <option value=\"3\">Самолёт</option>\n" +
+        "                            <option value=\"4\">Поезд</option>\n" +
+        "                            <option value=\"5\">Пешком</option>\n" +
+        "                            <option value=\"6\">Другое</option>\n" +
         "                        </select></p></div>\n" +
         "                        <div class=\"in\"><p>Затраты на транспорт: <input type=\"text\" name=\"transferCost_"+ countPlace.toString() + "\" class=\"transferCost\"></p></div>\n" +
         "                        <div class=\"noteFrom_" + countPlace.toString() + " note\"><p>Заметки к месту: <textarea></textarea></p></div>\n" +

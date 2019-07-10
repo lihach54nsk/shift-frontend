@@ -1,19 +1,15 @@
 class Travel {
     constructor(idUser, idTravel, name){
-        this.idUser = idUser;
-        this.idTravel = idTravel;
-        this.nameTravel = name;
+        this.name = name;
     }
 }
 
 class Move {
-    constructor(idMove, idTravel, from, dateFrom, to, dateTo, distance, transferId, money) {
-        this.idMove = idMove;
-        this.idTravel = idTravel;
-        this.from = from;
-        this.dateFrom = dateFrom;
-        this.to = to;
-        this.dateTo = dateTo;
+    constructor(from, dateFrom, to, dateTo, distance, transferId, money) {
+        this.fromPlace = from;
+        this.fromDate = dateFrom;
+        this.toPlace = to;
+        this.toDate = dateTo;
         this.distance = distance;
         this.transferId = transferId;
         this.money = money;
@@ -21,19 +17,15 @@ class Move {
 }
 
 class NotesMove {
-    constructor(idNote, idMove, topic, text) {
-        this.idNote = idNote;
-        this.idMove = idMove;
-        this.topicMove = topic;
+    constructor(topic, text) {
+        this.title = topic;
         this.text= text;
     }
 }
 
 class NotesTravel {
-    constructor(idNote, idTravel, topic, text) {
-        this.idNote = idNote;
-        this.idTravel = idTravel;
-        this.topicTravel = topic;
+    constructor(topic, text) {
+        this.title = topic;
         this.text= text;
     }
 }

@@ -12,12 +12,12 @@ function CreateNewNode() {
         "                        <div class=\"in\"><p>Дата прибытия: <input type=\"datetime-local\" name=\"dateTo_" + countList.toString() + "\" class=\"dateTo\"></p></div>\n" +
         "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input type=\"text\" name=\"distance_" + countList.toString() + "\" class=\"distance\"></p></div>\n" +
         "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + countList.toString() + "\">\n" +
-        "                            <option value=\"auto\">Автомобиль</option>\n" +
-        "                            <option value=\"society\">Общественный транспорт</option>\n" +
-        "                            <option value=\"air\">Самолёт</option>\n" +
-        "                            <option value=\"train\">Поезд</option>\n" +
-        "                            <option value=\"walk\">Пешком</option>\n" +
-        "                            <option value=\"other\">Другое</option>\n" +
+        "                            <option value=\"1\">Автомобиль</option>\n" +
+        "                            <option value=\"2\">Общественный транспорт</option>\n" +
+        "                            <option value=\"3\">Самолёт</option>\n" +
+        "                            <option value=\"4\">Поезд</option>\n" +
+        "                            <option value=\"5\">Пешком</option>\n" +
+        "                            <option value=\"6\">Другое</option>\n" +
         "                        </select></p></div>\n" +
         "                        <div class=\"in\"><p>Затраты на транспорт: <input type=\"text\" name=\"transferCost_"+ countList.toString() + "\" class=\"transferCost\"></p></div>\n" +
         "                        <div class=\"noteFrom_" + countList.toString() + " note\"><p>Заметки к месту: <textarea></textarea></p></div>\n" +
