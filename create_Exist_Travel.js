@@ -40,7 +40,7 @@ function Create_Exist_Places() {
     //countPlace++;
     let travelId = window.location.href.split("?")[1].split("=")[1];
 
-    let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK - GetTravel()
+    let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK - GetTravel() DONE
     xhrTravels.open('GET', '/api/v001/travels/' + travelId.toString(), false);
     xhrTravels.setRequestHeader('userId','UserA');
     xhrTravels.send();
@@ -53,7 +53,7 @@ function Create_Exist_Places() {
     * не забыть присвоить название путешествия в форме названия бэд-трипа
     * */
 
-    let xhrTravelInfo = new XMLHttpRequest(); // GetMoves()
+    let xhrTravelInfo = new XMLHttpRequest(); // GetMoves() DONE
     xhrTravelInfo.open('GET', '/api/v001/moves?travelId=' + travelId.toString(), false);
     xhrTravelInfo.setRequestHeader('userId','UserA');
     xhrTravelInfo.send();
@@ -84,7 +84,7 @@ function Create_Exist_Places() {
     let arrMoveNotes = [];
 
     for(let g = 0; g < countPlace; g++) {
-        let xhrMoveNotes = new XMLHttpRequest();// GetMoveNotes()
+        let xhrMoveNotes = new XMLHttpRequest();// GetMoveNotes() DONE
         xhrMoveNotes.open('GET', '/api/v001/notes/moves?moveId=' + arrId[g].toString(), false);
         xhrMoveNotes.setRequestHeader('userId', 'UserA');
         xhrMoveNotes.send();
@@ -100,7 +100,7 @@ function Create_Exist_Places() {
 
     alert(arrMoveNotes);
 
-    let xhrTravelNotes = new XMLHttpRequest(); // GetTravelNotes()
+    let xhrTravelNotes = new XMLHttpRequest(); // GetTravelNotes() DONE
     xhrTravelNotes.open('GET', '/api/v001/notes/travels?travelId=' + travelId.toString(), false);
     xhrTravelNotes.setRequestHeader('userId', 'UserA');
     xhrTravelNotes.send();
@@ -109,7 +109,7 @@ function Create_Exist_Places() {
     alert(TravelNote);
     /*запросить информацию о заметках по путешествию*/
 
-    for(let i = 0; i < countPlace; i++) {
+    for(let i = 0; i < countPlace; i++) { // TO DO (DATE + SELECTED)
         var findElement = document.getElementsByClassName('list');
         var newElement = document.createElement('li');
         newElement.className = "list_elem_" + (i + 1).toString();
