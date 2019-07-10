@@ -41,7 +41,7 @@ function Create_Exist_Places() {
     let travelId = window.location.href.split("?")[1].split("=")[1];
 
     let xhrTravels = new XMLHttpRequest(); // CHECK TO WORK - GetTravel()
-    xhrTravels.open('GET', '/api/v001/travels/1', false);
+    xhrTravels.open('GET', '/api/v001/travels/' + travelId.toString(), false);
     xhrTravels.setRequestHeader('userId','UserA');
     xhrTravels.send();
 
