@@ -123,8 +123,8 @@ function Create_Exist_Places() {
         newElement.innerHTML = "<div class=\"destination_" + (i + 1).toString() + " point\">\n" +
             "                        <div class=\"in\"><p>Место отправления: <input type=\"text\" value=\"" + arrFromPlace[i].toString() + "\" name=\"from_" + (i + 1).toString() + "\" class=\"from\"></p></div>\n" +
             "                        <div class=\"in\"><p>Место прибытия: <input type=\"text\" value=\"" + arrToPlace[i].toString() + "\" name=\"to_" + (i + 1).toString() + "\" class=\"to\"></p></div>\n" +
-            "                        <div class=\"in\"><p>Дата отправления: <input value=\"" + arrFromDate[i] + "\" type=\"datetime-local\" name=\"dateFrom_" + (i + 1).toString() + "\" class=\"dateFrom\"></p></div>\n" +
-            "                        <div class=\"in\"><p>Дата прибытия: <input value=\"" + arrToDate[i] + "\" type=\"datetime-local\" name=\"dateTo_" + (i + 1).toString() + "\" class=\"dateTo\"></p></div>\n" +
+            "                        <div class=\"in\"><p>Дата отправления: <input value=\"" + arrFromDate[i] + "\" type=\"date\" name=\"dateFrom_" + (i + 1).toString() + "\" class=\"dateFrom\"></p></div>\n" +
+            "                        <div class=\"in\"><p>Дата прибытия: <input value=\"" + arrToDate[i] + "\" type=\"date\" name=\"dateTo_" + (i + 1).toString() + "\" class=\"dateTo\"></p></div>\n" +
             "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input value=\"" + arrDistance[i].toString() + "\" type=\"text\" name=\"distance_" + (i + 1).toString() + "\" class=\"distance\"></p></div>\n" +
             "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + (i + 1).toString() + "\">\n" +
             "                            <option value=\"1\">Автомобиль</option>\n" +
@@ -151,8 +151,8 @@ function CreateNewNodeOfExistTravels(){
     newListElement.innerHTML = "<div  class=\"destination_" + countPlace.toString() + " point\">\n" +
         "                        <div class=\"in\"><p>Место отправления: <input type=\"text\" name=\"from_" + countPlace.toString() + "\" class=\"from\"></p></div>\n" +
         "                        <div class=\"in\"><p>Место прибытия: <input type=\"text\" name=\"to_" + countPlace.toString() + "\" class=\"to\"></p></div>\n" +
-        "                        <div class=\"in\"><p>Дата отправления: <input type=\"datetime-local\" name=\"dateFrom_" + countPlace.toString() + "\" class=\"dateFrom\"></p></div>\n" +
-        "                        <div class=\"in\"><p>Дата прибытия: <input type=\"datetime-local\" name=\"dateTo_" + countPlace.toString() + "\" class=\"dateTo\"></p></div>\n" +
+        "                        <div class=\"in\"><p>Дата отправления: <input type=\"date\" name=\"dateFrom_" + countPlace.toString() + "\" class=\"dateFrom\"></p></div>\n" +
+        "                        <div class=\"in\"><p>Дата прибытия: <input type=\"date\" name=\"dateTo_" + countPlace.toString() + "\" class=\"dateTo\"></p></div>\n" +
         "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input type=\"text\" name=\"distance_" + countPlace.toString() + "\" class=\"distance\"></p></div>\n" +
         "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + countPlace.toString() + "\">\n" +
         "                            <option value=\"1\">Автомобиль</option>\n" +
