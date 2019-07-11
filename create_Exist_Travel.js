@@ -1,4 +1,4 @@
-var countTravel = 3;
+var countTravel = 1;
 var countPlace = 1;
 
 function GetJason(jason) {
@@ -11,9 +11,9 @@ function Create_List_Of_existing_Travels() {
     xhrTravelsList.open('GET', '/api/v001/travels', true); // GetTravels()
     xhrTravelsList.onreadystatechange = function () {
         if (xhrTravelsList.readyState === XMLHttpRequest.DONE && xhrTravelsList.status === 200) {
-            alert('DONE GetTravel');
+            //alert('DONE GetTravel');
             let JSON = GetJason(xhrTravelsList.responseText);
-            alert(JSON.toString());
+            //alert(JSON.toString());
             countTravel = JSON.length;
             alert(countTravel);
 
@@ -35,6 +35,8 @@ function Create_List_Of_existing_Travels() {
 function Open_Exist_Travel(value) {
     document.location = "exist_Travel.html?value=" + value.toString();
 }
+
+var travelNoteId = -1;
 
 function Create_Exist_Places() {
     //countPlace++;
@@ -59,7 +61,7 @@ function Create_Exist_Places() {
     xhrTravelInfo.send();
 
     let JSONTravelInfo = GetJason(xhrTravelInfo.responseText);
-    alert(JSONTravelInfo);
+    //alert(JSONTravelInfo);
     countPlace = JSONTravelInfo.length;
     let arrId = []; // MoveId
     let arrTransferId = [];
@@ -82,22 +84,26 @@ function Create_Exist_Places() {
     }
     alert(arrFromDate);
     let arrMoveNotes = [];
+    let arrIdNotes = [];
+    arrMoveIds = arrId;
 
     for(let g = 0; g < countPlace; g++) {
         let xhrMoveNotes = new XMLHttpRequest();// GetMoveNotes() DONE
         xhrMoveNotes.open('GET', '/api/v001/notes/moves?moveId=' + arrId[g].toString(), false);
         xhrMoveNotes.setRequestHeader('userId', 'UserA');
         xhrMoveNotes.send();
-        alert('Request sent');
+        //alert('Request sent');
         let JSONMoveNotes = GetJason(xhrMoveNotes.responseText);
         if (JSONMoveNotes == ''){
             arrMoveNotes.push(" ");
         } else {
             arrMoveNotes.push(JSONMoveNotes[0].text);
         }
+        arrIdNotes.push(JSONMoveNotes[0].id);
         /*запросить информацию о путешествии(-ях???)*/
     }
 
+    arrNotesIds = arrIdNotes;
     alert(arrMoveNotes);
 
     let xhrTravelNotes = new XMLHttpRequest(); // GetTravelNotes() DONE
@@ -106,7 +112,8 @@ function Create_Exist_Places() {
     xhrTravelNotes.send();
 
     let TravelNote = GetJason(xhrTravelNotes.responseText)[0].text;
-    alert(TravelNote);
+    travelNoteId = GetJason(xhrTravelNotes.responseText)[0].id;
+    //alert(TravelNote);
     /*запросить информацию о заметках по путешествию*/
 
     for(let i = 0; i < countPlace; i++) { // TO DO (DATE + SELECTED)
@@ -133,6 +140,7 @@ function Create_Exist_Places() {
         findElement[0].appendChild(newElement);
     }
     document.querySelectorAll('div.note_Travel p textarea')[0].value = TravelNote;
+    count_Of_Exist_Place = countPlace;
 }
 
 function CreateNewNodeOfExistTravels(){

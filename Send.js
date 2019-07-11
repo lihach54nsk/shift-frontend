@@ -1,5 +1,5 @@
 function SendData() {
-    let travel = new Travel(document.querySelectorAll('div.name_of_Travel > p input')[0].value);
+    let travel = new Travel(document.querySelectorAll('div.name_of_Travel > p input')[0].value.toString());
 
     var str = JSON.stringify(travel);
     let xmlTravelPOSTSend = new XMLHttpRequest(); // PostTravel()
@@ -26,18 +26,102 @@ function SendData() {
             xmlTravelNotesPOSTSend.open('POST','/api/v001/notes/travels?travelId=' + travelId.toString(), true);
             xmlTravelNotesPOSTSend.setRequestHeader('userId','UserA');
             xmlTravelNotesPOSTSend.setRequestHeader('Content-Type','application/json');
-            xmlTravelNotesPOSTSend.onreadystatechange = function () {
-
-            }
+            xmlTravelNotesPOSTSend.onreadystatechange = function () {}
             xmlTravelNotesPOSTSend.send(str);
 
             alert(str);
         }
     }
     xmlTravelPOSTSend.send(str);
-
-
     /*отправка данных*/
+}
+
+var count_Of_Exist_Place = -1;
+
+function PatchData() {
+    let travelId = window.location.href.split("?")[1].split("=")[1];
+
+    let travel = new TravelPATCH(travelId.toString(), document.querySelectorAll('div.name_of_Travel > p input')[0].value.toString());
+    var str = JSON.stringify(travel);
+    let xhrTravelPATCH = new XMLHttpRequest();
+    xhrTravelPATCH.open('PATCH','/api/v001/travels/' + travelId.toString(), true);
+    xhrTravelPATCH.setRequestHeader('userId','UserA');
+    xhrTravelPATCH.setRequestHeader('Content-Type','application/json');
+    xhrTravelPATCH.onreadystatechange = function () {
+        if (xhrTravelPATCH.status === 200 && xhrTravelPATCH.readyState === XMLHttpRequest.DONE) {
+            alert(travelId);
+            alert('Request travel sent successfully!');
+
+            for (let i = 1; i <= count_Of_Exist_Place; i++) {
+                FindDataPatch(i, travelId);
+                alert('Request exist move sent successfully!');
+            }
+
+            if (count_Of_Exist_Place !== countPlace) {
+                for(let k = count_Of_Exist_Place + 1; k <= countPlace; k++){
+                    FindDataInput(k ,travelId);
+                    alert('Request move sent successfully!');
+                }
+            }
+
+            let notesTravel = new NotesTravelPATCH(travelNoteId ,"topic", document.querySelectorAll('div.note_Travel textarea')[0].value);
+
+            var str = JSON.stringify(notesTravel);
+
+            let xmlTravelNotesPATCHSend = new XMLHttpRequest(); // PostTravelNote()
+            xmlTravelNotesPATCHSend.open('PATCH','/api/v001/notes/travels/' + travelNoteId.toString() + '?travelId=' + travelId.toString(), true);
+            xmlTravelNotesPATCHSend.setRequestHeader('userId','UserA');
+            xmlTravelNotesPATCHSend.setRequestHeader('Content-Type','application/json');
+            xmlTravelNotesPATCHSend.onreadystatechange = function () {}
+            xmlTravelNotesPATCHSend.send(str);
+
+            alert(str);
+            alert('Request travel note sent successfully!');
+        }
+    }
+    xhrTravelPATCH.send(str);
+}
+
+var arrMoveIds = [];
+var arrNotesIds = [];
+
+function FindDataPatch(number_Of_Tag, travelId) {
+    let elements = document.querySelectorAll('div.destination_' + number_Of_Tag + ' > div p input');
+
+    let move = new MovePATCH(arrMoveIds[number_Of_Tag - 1].toString(), elements[0].value, elements[2].value,
+        elements[1].value, elements[3].value, elements[4].value,
+        document.querySelectorAll( 'div.destination_' + number_Of_Tag + ' > div p select')[0].value, elements[5].value);
+
+    str = JSON.stringify(move);
+
+    let xhrMoveDataPATCHSend = new XMLHttpRequest(); // PostMove()
+    xhrMoveDataPATCHSend.open('PATCH','/api/v001/moves/' + arrMoveIds[number_Of_Tag - 1].toString() + '?travelId=' + travelId.toString(),true);
+    xhrMoveDataPATCHSend.setRequestHeader('userId','UserA');
+    xhrMoveDataPATCHSend.setRequestHeader('Content-Type','application/json');
+    xhrMoveDataPATCHSend.onreadystatechange = function () {
+        if (xhrMoveDataPATCHSend.status === 200 && XMLHttpRequest.DONE === xhrMoveDataPATCHSend.readyState) {
+            alert(str);
+
+            let notesMove = new NotesMovePATCH(arrNotesIds[number_Of_Tag - 1].toString(),"topic", document.querySelectorAll('div.noteFrom_' + number_Of_Tag + ' p textarea')[0].value);
+
+            str = JSON.stringify(notesMove);
+
+            let xhrMoveNotePATCHSend = new XMLHttpRequest(); // PostNoteMove() SZDXFCGVBHJMLK
+            xhrMoveNotePATCHSend.open('PATCH','/api/v001/notes/moves/' + arrNotesIds[number_Of_Tag - 1].toString()
+                + '?moveId=' + arrMoveIds[number_Of_Tag - 1].toString(),true);
+            xhrMoveNotePATCHSend.setRequestHeader('userId','UserA');
+            xhrMoveNotePATCHSend.setRequestHeader('Content-Type','application/json');
+            xhrMoveNotePATCHSend.onreadystatechange = function () {
+                if (xhrMoveNotePATCHSend.status === 200 && XMLHttpRequest.DONE === xhrMoveNotePATCHSend.readyState) {
+                }
+            }
+            xhrMoveNotePATCHSend.send(str);
+
+            alert(str);
+            /*отправка данных*/
+        }
+    }
+    xhrMoveDataPATCHSend.send(str);
 }
 
 function FindDataInput(number_Of_Tag, travelId) {
@@ -83,6 +167,4 @@ function FindDataInput(number_Of_Tag, travelId) {
         }
     }
     xhrMoveDataPOSTSend.send(str);
-
-
 }
