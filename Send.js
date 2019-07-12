@@ -9,10 +9,10 @@ function SendData() {
     xmlTravelPOSTSend.onreadystatechange = function () {
         if (xmlTravelPOSTSend.status === 200 && xmlTravelPOSTSend.readyState === XMLHttpRequest.DONE) {
             let JSONTravelAnswer = GetJason(xmlTravelPOSTSend.responseText);
-            alert('TravelId = '+ JSONTravelAnswer.id);
+            //alert('TravelId = '+ JSONTravelAnswer.id);
             var travelId = JSONTravelAnswer.id;
 
-            alert(travelId);
+            //alert(travelId);
 
             for (let i = 1; i <= countList; i++) {
                 FindDataInput(i, travelId);
@@ -32,7 +32,7 @@ function SendData() {
             //alert(str);
         }
     }
-    alert('Travel = ' + str);
+    //alert('Travel = ' + str);
     xmlTravelPOSTSend.send(strTravel);
     /*отправка данных*/
 }
@@ -50,18 +50,18 @@ function PatchData() {
     xhrTravelPATCH.setRequestHeader('Content-Type','application/json');
     xhrTravelPATCH.onreadystatechange = function () {
         if (xhrTravelPATCH.status === 200 && xhrTravelPATCH.readyState === XMLHttpRequest.DONE) {
-            alert(travelId);
-            alert('Request travel sent successfully!');
+            //alert(travelId);
+            //alert('Request travel sent successfully!');
 
             for (let i = 1; i <= count_Of_Exist_Place; i++) {
                 FindDataPatch(i, travelId);
-                alert('Request exist move sent successfully!');
+                //alert('Request exist move sent successfully!');
             }
 
             if (count_Of_Exist_Place !== countPlace) {
                 for(let k = count_Of_Exist_Place + 1; k <= countPlace; k++){
                     FindDataInput(k ,travelId);
-                    alert('Request move sent successfully!');
+                    //alert('Request move sent successfully!');
                 }
             }
 
@@ -101,7 +101,7 @@ function FindDataPatch(number_Of_Tag, travelId) {
     xhrMoveDataPATCHSend.setRequestHeader('Content-Type','application/json');
     xhrMoveDataPATCHSend.onreadystatechange = function () {
         if (xhrMoveDataPATCHSend.status === 200 && XMLHttpRequest.DONE === xhrMoveDataPATCHSend.readyState) {
-            alert(str);
+            //alert(str);
 
             let notesMove = new NotesMovePATCH(arrNotesIds[number_Of_Tag - 1].toString(),"topic", document.querySelectorAll('div.noteFrom_' + number_Of_Tag + ' p textarea')[0].value);
 
@@ -117,7 +117,7 @@ function FindDataPatch(number_Of_Tag, travelId) {
             }
             xhrMoveNotePATCHSend.send(str);
 
-            alert(str);
+            //alert(str);
             /*отправка данных*/
         }
     }
@@ -141,10 +141,10 @@ function FindDataInput(number_Of_Tag, travelId) {
     xhrMoveDataPOSTSend.onreadystatechange = function () {
         if (xhrMoveDataPOSTSend.status === 200 && XMLHttpRequest.DONE === xhrMoveDataPOSTSend.readyState) {
             let JSONMoveDataAnswer = GetJason(xhrMoveDataPOSTSend.responseText);
-            alert('MoveId = ' + JSONMoveDataAnswer.id);
+            //alert('MoveId = ' + JSONMoveDataAnswer.id);
             moveId = JSONMoveDataAnswer.id;
 
-            alert(str);
+            //alert(str);
 
             let notesMove = new NotesMove("topic", document.querySelectorAll('div.noteFrom_' + number_Of_Tag + ' p textarea')[0].value);
 
@@ -157,12 +157,12 @@ function FindDataInput(number_Of_Tag, travelId) {
             xhrMoveNotePOSTSend.onreadystatechange = function () {
                 if (xhrMoveNotePOSTSend.status === 200 && XMLHttpRequest.DONE === xhrMoveNotePOSTSend.readyState) {
                     let JSONMoveNoteAnswer = GetJason(xhrMoveNotePOSTSend.responseText);
-                    alert('NoteId = ' + JSONMoveNoteAnswer.id);
+                    //alert('NoteId = ' + JSONMoveNoteAnswer.id);
                 }
             }
             xhrMoveNotePOSTSend.send(str);
 
-            alert(str);
+            //alert(str);
             /*отправка данных*/
         }
     }

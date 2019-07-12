@@ -12,8 +12,8 @@ function GetDate(dateSec) {
         let chislo = month.toString();
         month = '0'+chislo;
     }
-    let strDate =  + date.getUTCFullYear().toString() + '-' + month.toString()+ '-' + date.getDate();
-    return strDate;
+    let strDate =  date.getUTCFullYear().toString() + '-' + month.toString()+ '-' + date.getDate();
+    return strDate.toString();
 }
 
 function Create_List_Of_existing_Travels() {
@@ -26,7 +26,7 @@ function Create_List_Of_existing_Travels() {
             let JSON = GetJason(xhrTravelsList.responseText);
             //alert(JSON.toString());
             countTravel = JSON.length;
-            alert(countTravel);
+            //alert(countTravel);
 
             for(let i = 1; i <= countTravel; i++) {
                 let findDiv = document.getElementsByClassName('travel_list');
@@ -93,8 +93,8 @@ function Create_Exist_Places() {
         arrDistance.push(JSONTravelInfo[j].distance);
         arrMoney.push(JSONTravelInfo[j].money);
     }
-    alert('From = ' + arrFromDate);
-    alert('To = ' + arrToDate);
+    //alert('From = ' + arrFromDate);
+    //alert('To = ' + arrToDate);
     let arrMoveNotes = [];
     let arrIdNotes = [];
     arrMoveIds = arrId;
@@ -116,7 +116,7 @@ function Create_Exist_Places() {
     }
 
     arrNotesIds = arrIdNotes;
-    alert(arrMoveNotes);
+    //alert(arrMoveNotes);
 
     let xhrTravelNotes = new XMLHttpRequest(); // GetTravelNotes() DONE
     xhrTravelNotes.open('GET', '/api/v001/notes/travels?travelId=' + travelId.toString(), false);
