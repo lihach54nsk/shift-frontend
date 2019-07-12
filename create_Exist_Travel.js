@@ -5,6 +5,17 @@ function GetJason(jason) {
    return JSON.parse(jason);
 }
 
+function GetDate(dateSec) {
+    let date = new Date(dateSec);
+    let month = date.getMonth();
+    if (month < 10) {
+        let chislo = month.toString();
+        month = '0'+chislo;
+    }
+    let strDate =  + date.getUTCFullYear().toString() + '-' + month.toString()+ '-' + date.getDate();
+    return strDate;
+}
+
 function Create_List_Of_existing_Travels() {
     //let ret = createRequest();
     let xhrTravelsList = new XMLHttpRequest();
@@ -76,13 +87,14 @@ function Create_Exist_Places() {
         arrId.push(JSONTravelInfo[j].id);
         arrTransferId.push(JSONTravelInfo[j].transferId);
         arrFromPlace.push(JSONTravelInfo[j].fromPlace);
-        arrFromDate.push(new Date(JSONTravelInfo[j].fromDate));
+        arrFromDate.push(GetDate(JSONTravelInfo[j].fromDate));
         arrToPlace.push(JSONTravelInfo[j].toPlace);
-        arrToDate.push(new Date(JSONTravelInfo[j].toDate));
+        arrToDate.push(GetDate(JSONTravelInfo[j].toDate));
         arrDistance.push(JSONTravelInfo[j].distance);
         arrMoney.push(JSONTravelInfo[j].money);
     }
-    alert(arrFromDate);
+    alert('From = ' + arrFromDate);
+    alert('To = ' + arrToDate);
     let arrMoveNotes = [];
     let arrIdNotes = [];
     arrMoveIds = arrId;
@@ -123,7 +135,7 @@ function Create_Exist_Places() {
         newElement.innerHTML = "<div class=\"destination_" + (i + 1).toString() + " point\">\n" +
             "                        <div class=\"in\"><p>Место отправления: <input type=\"text\" value=\"" + arrFromPlace[i].toString() + "\" name=\"from_" + (i + 1).toString() + "\" class=\"from\"></p></div>\n" +
             "                        <div class=\"in\"><p>Место прибытия: <input type=\"text\" value=\"" + arrToPlace[i].toString() + "\" name=\"to_" + (i + 1).toString() + "\" class=\"to\"></p></div>\n" +
-            "                        <div class=\"in\"><p>Дата отправления: <input value=\"" + arrFromDate[i] + "\" type=\"date\" name=\"dateFrom_" + (i + 1).toString() + "\" class=\"dateFrom\"></p></div>\n" +
+            "                        <div class=\"in\"><p>Дата отправления: <input value=\"" + arrFromDate[i].toString() + "\" type=\"date\" name=\"dateFrom_" + (i + 1).toString() + "\" class=\"dateFrom\"></p></div>\n" +
             "                        <div class=\"in\"><p>Дата прибытия: <input value=\"" + arrToDate[i] + "\" type=\"date\" name=\"dateTo_" + (i + 1).toString() + "\" class=\"dateTo\"></p></div>\n" +
             "                        <div class=\"in\"><p>Расстояние до пункта назначения: <input value=\"" + arrDistance[i].toString() + "\" type=\"text\" name=\"distance_" + (i + 1).toString() + "\" class=\"distance\"></p></div>\n" +
             "                        <div class=\"in\"><p>Выберите вид транспорта: <select name=\"transfer\" class=\"transfer_" + (i + 1).toString() + "\">\n" +
