@@ -1,7 +1,7 @@
 function SendData() {
     let travel = new Travel(document.querySelectorAll('div.name_of_Travel > p input')[0].value.toString());
 
-    var str = JSON.stringify(travel);
+    var strTravel = JSON.stringify(travel);
     let xmlTravelPOSTSend = new XMLHttpRequest(); // PostTravel()
     xmlTravelPOSTSend.open('POST','/api/v001/travels',true);
     xmlTravelPOSTSend.setRequestHeader('userId','UserA');
@@ -29,10 +29,11 @@ function SendData() {
             xmlTravelNotesPOSTSend.onreadystatechange = function () {}
             xmlTravelNotesPOSTSend.send(str);
 
-            alert(str);
+            //alert(str);
         }
     }
-    xmlTravelPOSTSend.send(str);
+    alert('Travel = ' + str);
+    xmlTravelPOSTSend.send(strTravel);
     /*отправка данных*/
 }
 
@@ -75,8 +76,8 @@ function PatchData() {
             xmlTravelNotesPATCHSend.onreadystatechange = function () {}
             xmlTravelNotesPATCHSend.send(str);
 
-            alert(str);
-            alert('Request travel note sent successfully!');
+            //alert(str);
+            //alert('Request travel note sent successfully!');
         }
     }
     xhrTravelPATCH.send(str);
@@ -166,4 +167,16 @@ function FindDataInput(number_Of_Tag, travelId) {
         }
     }
     xhrMoveDataPOSTSend.send(str);
+}
+
+function GetFullMoney() {
+    let travelId = window.location.href.split("?")[1].split("=")[1];
+    let xhrFullMoney = new XMLHttpRequest();
+    xhrFullMoney.open('GET','/api/v001/finalPrice/' + travelId.toString(),true);
+    xhrFullMoney.setRequestHeader('userId','UserA');
+    xhrFullMoney.onreadystatechange = function () {
+        let travelMoney = GetJason(xhrFullMoney.responseText);
+        document.querySelectorAll('div.in p input.fullMoney')[0].value = travelMoney.price;
+    }
+    xhrFullMoney.send();
 }

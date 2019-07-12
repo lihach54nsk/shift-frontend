@@ -21,6 +21,7 @@
                 </ol>
             </form>
             <div class="note_Travel"><p>Заметки к путешествию: <textarea name="noteTravel" class="note"></textarea></p></div>
+            <div class="in"><p>Общие затраты на транспорт: <input class="fullMoney" name="fullMoney"> </p></div>
             <button class="createList" onclick="CreateNewNodeOfExistTravels()">Новое место</button>
             <button class="send" onclick="PatchData()">Сохранить</button>
         </div>
@@ -29,6 +30,7 @@
     <script>
         $(document).ready(function () {
             Create_Exist_Places();
+            GetFullMoney();
         })
     </script>
 </html>
