@@ -143,7 +143,7 @@ function Create_Exist_Places() {
     count_Of_Exist_Place = countPlace;
 }
 
-function CreateNewNodeOfExistTravels(){
+function CreateNewNodeOfExistTravels() {
     var findNewElement = document.getElementsByClassName('list');
     countPlace++;
     var newListElement = document.createElement('li');
