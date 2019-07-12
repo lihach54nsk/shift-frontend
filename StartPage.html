@@ -57,40 +57,7 @@
                                 <div class="in"><p>Затраты на транспорт: <input type="text" name="transferCost_1" class="transferCost"></p></div>
                                 <div class="noteFrom_1 note"><p>Заметки к месту: <textarea></textarea></p></div>
                             </div>
-                            <script>
-                                $.fn.serializeObject = function()
-                                {
-                                    var o = {};
-                                    var a = this.serializeArray();
-                                    $.each(a, function() {
-                                        if (o[this.name]) {
-                                            if (!o[this.name].push) {
-                                                o[this.name] = [o[this.name]];
-                                            }
-                                            o[this.name].push(this.value || '');
-                                        } else {
-                                            o[this.name] = this.value || '';
-                                        }
-                                    });
-                                    return o;
-                                };
-
-                                $(function() {
-                                    $('#my_travel').submit(function() {
-                                        alert(JSON.stringify($('#my_travel').serializeObject()));
-                                        return false;
-                                    });
-                                });
-                            </script>
                         </form>
-                        <script>
-                            //var elements = document.querySelectorAll('div.destination_1 > div p input')
-                            //elements
-                            //var elements2 = document.querySelectorAll('div.destination_1 > div p')
-                            //elements2
-                            //var elements = document.querySelectorAll('div.name_of_Travel > p input')
-                            //elements[0].value
-                        </script>
                     </li>
                 </ol>
             </form>

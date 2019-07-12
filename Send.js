@@ -106,14 +106,13 @@ function FindDataPatch(number_Of_Tag, travelId) {
 
             str = JSON.stringify(notesMove);
 
-            let xhrMoveNotePATCHSend = new XMLHttpRequest(); // PostNoteMove() SZDXFCGVBHJMLK
+            let xhrMoveNotePATCHSend = new XMLHttpRequest(); // PostNoteMove()
             xhrMoveNotePATCHSend.open('PATCH','/api/v001/notes/moves/' + arrNotesIds[number_Of_Tag - 1].toString()
                 + '?moveId=' + arrMoveIds[number_Of_Tag - 1].toString(),true);
             xhrMoveNotePATCHSend.setRequestHeader('userId','UserA');
             xhrMoveNotePATCHSend.setRequestHeader('Content-Type','application/json');
             xhrMoveNotePATCHSend.onreadystatechange = function () {
-                if (xhrMoveNotePATCHSend.status === 200 && XMLHttpRequest.DONE === xhrMoveNotePATCHSend.readyState) {
-                }
+                if (xhrMoveNotePATCHSend.status === 200 && XMLHttpRequest.DONE === xhrMoveNotePATCHSend.readyState) {}
             }
             xhrMoveNotePATCHSend.send(str);
 

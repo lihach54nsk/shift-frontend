@@ -23,8 +23,4 @@ function CreateNewNode() {
         "                        <div class=\"noteFrom_" + countList.toString() + " note\"><p>Заметки к месту: <textarea></textarea></p></div>\n" +
         "                    </div>"
     findElem[0].appendChild(newElem);
-    //var newDiv=document.createElement('div');
-    //newDiv.className="new";
-    //findElem=document.getElementsByClassName("list_elem_" + countList.toString());
-    //findElem[0].appendChild(newDiv);
 }
