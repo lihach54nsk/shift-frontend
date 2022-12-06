@@ -5,6 +5,6 @@
     "run": "http-server -P http://127.0.0.1:3000"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.2"
   }
 }
